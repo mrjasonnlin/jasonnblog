@@ -1,0 +1,18 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>部落格</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+  </head>
+  <body>
+		<ul id="menu">
+  <li><a href="{% url 'main:main' %}">首頁</a></li>
+  <li><a href="{% url 'main:about' %}">關於</a></li>
+  <li><a href="{% url 'article:article' %}">部落格</a></li>
+</ul>
+    <h2>關於 blog</h2>
+    <p>歡迎來到我的 blog,你可以在此留言</p>
+  </body>
+</html>

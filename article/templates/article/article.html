@@ -1,0 +1,47 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>部落格</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+  </head>
+  <body>
+		<ul id="menu">
+  <li><a href="{% url 'main:main' %}">首頁</a></li>
+  <li><a href="{% url 'main:about' %}">關於</a></li>
+  <li><a href="{% url 'article:article' %}">部落格</a></li>
+</ul>
+    <h1>歡迎來到我的部落格</h1>
+    {% include 'main/messages.html' %}
+    <form class="inlineBlock" action="{% url 'article:articleSearch' %}">
+      <input type="text" name="searchTerm">
+      <input class="btn" type="submit" value="查詢">
+    </form>
+    
+    <p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增文章</a></p>
+    <br><br><hr>
+    {% for items in itemList %}
+      {% for item in items %}
+        {% if forloop.first %}
+          <h3 class="inlineBlock"><a href="{% url 'article:articleRead' item.id %}">{{ item.title }}</a></h3>
+          <form class="inlineBlock" method="post" action="{% url 'article:articleDelete' item.id %}">
+        {% csrf_token %}
+        <input class="btn deleteConfirm" type="submit" value="刪除">
+      </form>
+          <p>發表時間：{{ item.pubDateTime|date:'Y-m-d H:i' }}</p>
+          <div class="articleContent">{{ item.content|linebreaks|truncatechars_html:30 }}</div>
+        {% else %}
+          <div class="commentDiv">
+            <span class="comment">{{ item.content }}</span><br>
+            <span class="commentTime">{{ item.pubDateTime|date:'m月d日 H:i' }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <hr>
+    {% endfor %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src={% static 'main/js/deleteConfirm.js' %}></script>
+  </body>
+</html>

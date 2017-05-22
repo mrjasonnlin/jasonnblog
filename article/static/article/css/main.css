@@ -1,0 +1,52 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  padding: 20px;
+  background: url(../img/background.jpg) fixed;
+  background-repeat: repeat;
+}
+
+ul#menu {
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+ul#menu li {
+  display: inline-block;
+} 
+
+/* Button */
+
+.btn {
+  font-family: Arial;
+  display: inline-block;
+  color: black;
+  font-size: 0.8em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border: thin solid gray;
+  background: linear-gradient(#f7f7f7, #dedede);
+}
+
+/* Messages */
+.success, .error {
+  padding: 1em 0 1em 3em;
+}
+
+.success {
+  background-color: #ddffdd;
+  border: thin solid green;
+}
+
+.error {
+  background-color: #fbd9d8;
+  border: thin solid red;
+}
+
+/* Misc */
+.inlineBlock {
+  display: inline-block;
+}
