@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="{% static 'article/css/article.css' %}">
   </head>
   <body>
-		<ul id="menu">
-  <li><a href="{% url 'main:main' %}">首頁</a></li>
-  <li><a href="{% url 'main:about' %}">關於</a></li>
-  <li><a href="{% url 'article:article' %}">部落格</a></li>
-</ul>
+{% include 'main/menu.html' %}
     <h1>歡迎來到我的部落格</h1>
     {% include 'main/messages.html' %}
     <form class="inlineBlock" action="{% url 'article:articleSearch' %}">

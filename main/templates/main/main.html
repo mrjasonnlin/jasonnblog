@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
   </head>
   <body>
-		<ul id="menu">
-  <li><a href="{% url 'main:main' %}">首頁</a></li>
-  <li><a href="{% url 'main:about' %}">關於</a></li>
-  <li><a href="{% url 'article:article' %}">部落格</a></li>
-</ul>
+{% include 'main/menu.html' %}
     <h2>Django say Hello world!</h2>
     <p>{{ like }}</p>
   </body>

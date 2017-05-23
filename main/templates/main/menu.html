@@ -1,6 +1,12 @@
-# -*- coding: utf-8 -*-
+<meta charset="utf-8">
 <ul id="menu">
-  <li><a href="{% url 'main:main' %}">­º­¶</a></li>
-  <li><a href="{% url 'main:about' %}">Ãö©ó</a></li>
-  <li><a href="{% url 'article:article' %}">³¡¸¨®æ</a></li>
+  <li><a href="{% url 'main:main' %}">é¦–é </a></li>
+  <li><a href="{% url 'main:about' %}">é—œæ–¼</a></li>
+  <li><a href="{% url 'article:article' %}">éƒ¨è½æ ¼</a></li>
+  {% if user.is_authenticated %}
+    <li><a href="{% url 'account:logout' %}">ç™»å‡º ({{ user.username }})</a></li>
+  {% else %}
+  <li><a href="{% url 'account:register' %}">è¨»å†Š</a></li>
+  <li><a href="{% url 'account:login' %}">ç™»å…¥</a></li>
+ {% endif %}
 </ul>

@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+{% extends "main/base.html" %}
+{% block heading %}註冊{% endblock %}
+{% block content %}
+<form method="post" action="{% url 'account:register' %}">
+  {% csrf_token %}
+  {{ userForm.as_p }}
+  {{ userProfileForm.as_p }}
+  <input type="submit" value="送出">
+</form>
+{% endblock %}
+
+
