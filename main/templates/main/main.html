@@ -4,11 +4,27 @@
   <head>
     <title>部落格</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+ 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" charset="utf-8">
+
   </head>
   <body>
 {% include 'main/menu.html' %}
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
     <h2>這是Jason第一次用Django做好的部落格!請大家多多吐槽!</h2>
-    <p>{{ like }}</p>
+    <p class="navbar">這是用 Class 選擇器的例子。</p>
+    <p class="navbar">{{ like }}</p>
+    <b class="special">同一個選擇器</b>可以<i class="special">有不同的 instance。</i>
+    <p class="applylarge applyred">這是多重 Class 的例子。</p>
+    <p id="footer">這是用 ID 選擇器的例子。</p>
+    <p id="footer">這是用 ID 選擇器的例子。</p>
+    <b class="special">同一個選擇器</b>可以<i class="special">有不同的 instance。</i>
+    <div class="large"> 
+  這是 DIV 範例。 
+</div>
   </body>
 </html>
