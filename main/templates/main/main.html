@@ -13,14 +13,15 @@
   <body>
 {% include 'main/menu.html' %}
 <div>
-    <h1><a href="/">Django Girls Blog</a></h1>
+    <h1><a href="/">林至丞的 Django Blog</a></h1>
+    <h1><a href="/main/about/">關於/main/about/</a></h1>
+    <h1><a href="{% url 'main:about' %}">關於{% url 'main:about' %}</a></h1>
 </div>
-    <h2>這是Jason第一次用Django做好的部落格!請大家多多吐槽!</h2>
-    <p class="navbar">這是用 Class 選擇器的例子。</p>
-    <p class="navbar">{{ like }}</p>
-    <b class="special">同一個選擇器</b>可以<i class="special">有不同的 instance。</i>
+    <h2>這是林至丞(Jason)第一次用Django做好的部落格!請大家多多吐槽!</h2>
+    <p class="navbar"><h2>這是用 Class 選擇器的例子。</h2>
+<p class="navbar"><h2>{{ like }}{{ time }}</h2>
+<b class="special">同一個選擇器</b>可以<i class="special">有不同的 instance。</i>
     <p class="applylarge applyred">這是多重 Class 的例子。</p>
-    <p id="footer">這是用 ID 選擇器的例子。</p>
     <p id="footer">這是用 ID 選擇器的例子。</p>
     <b class="special">同一個選擇器</b>可以<i class="special">有不同的 instance。</i>
     <div class="large"> 

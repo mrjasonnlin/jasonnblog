@@ -82,19 +82,19 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Running on the development environment
 if DEBUG:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blogdb',
-        'USER': 'blog',
-        'PASSWORD': 'blog',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'blogdb',
+            'USER': 'blog',
+            'PASSWORD': 'blog',
+            'HOST': 'localhost',
+            'PORT': '',
+            }
+        }
 else:   # Running on Heroku
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
-    DATABASES = {'default':dj_database_url.config()}
+    DATABASES = {'default': dj_database_url.config()}
     # Honor the 'X-Forwarded-Proto' header for request.is_secure()
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
