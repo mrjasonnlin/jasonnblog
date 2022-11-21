@@ -7,6 +7,7 @@ from django.db.models.query_utils import Q
 from article.models import Article, Comment
 from article.forms import ArticleForm
 
+
 def article(request):
     """
     Render the article page
@@ -20,6 +21,7 @@ def article(request):
     context = {'itemList': itemList}
     return render(request, 'article/article.html', context)
 
+
 def articleCreate(request):
     """
     Create a new article instance
@@ -30,14 +32,16 @@ def articleCreate(request):
     template = 'article/articleCreateUpdate.html'
     if request.method == 'GET':
         print(ArticleForm())
-        return render(request, template, {'articleForm':ArticleForm()})
+        return render(request, template, {'articleForm': ArticleForm()})
     # POST
     articleForm = ArticleForm(request.POST)
     if not articleForm.is_valid():
-        return render(request, template, {'articleForm':articleForm})
+        return render(request, template, {'articleForm': articleForm})
     articleForm.save()
     messages.success(request, '文章已新增')
     return redirect('article:article')
+
+
 def articleRead(request, articleId):
     """
     Read an article
@@ -51,6 +55,8 @@ def articleRead(request, articleId):
         'comments': Comment.objects.filter(article=article)
     }
     return render(request, 'article/articleRead.html', context)
+
+
 def articleUpdate(request, articleId):
     """
     Update the article instance:
@@ -69,8 +75,10 @@ def articleUpdate(request, articleId):
     if not articleForm.is_valid():
         return render(request, template, {'articleForm': articleForm, 'article': article})
     articleForm.save()
-    messages.success(request, '文章已修改') 
+    messages.success(request, '文章已修改')
     return redirect('article:articleRead', articleId=articleId)
+
+
 def articleDelete(request, articleId):
     """
     Delete the article instance:
@@ -82,8 +90,10 @@ def articleDelete(request, articleId):
     # POST
     articleToDelete = get_object_or_404(Article, id=articleId)
     articleToDelete.delete()
-    messages.success(request, '文章已刪除')  
+    messages.success(request, '文章已刪除')
     return redirect('article:article')
+
+
 def articleSearch(request):
     """
     Search for articles:
@@ -93,8 +103,10 @@ def articleSearch(request):
     searchTerm = request.GET.get('searchTerm')
     articles = Article.objects.filter(Q(title__icontains=searchTerm) |
                                       Q(content__icontains=searchTerm))
-    context = {'articles':articles, 'searchTerm':searchTerm} 
+    context = {'articles': articles, 'searchTerm': searchTerm}
     return render(request, 'article/articleSearch.html', context)
+
+
 def articleLike(request, articleId):
     """
     Add the user to the 'likes' field:
@@ -106,6 +118,8 @@ def articleLike(request, articleId):
     if not request.user.article_set.exists():
         article.likes.add(request.user)
     return articleRead(request, articleId)
+
+
 def commentCreate(request, articleId):
     """
     Create a comment for an article:
@@ -123,6 +137,8 @@ def commentCreate(request, articleId):
     article = get_object_or_404(Article, id=articleId)
     Comment.objects.create(article=article, user=request.user, content=comment)
     return redirect('article:articleRead', articleId=articleId)
+
+
 def commentUpdate(request, commentId):
     """
     Update a comment:
@@ -142,6 +158,8 @@ def commentUpdate(request, commentId):
         commentToUpdate.content = comment
         commentToUpdate.save()
     return redirect('article:articleRead', articleId=article.id)
+
+
 def commentDelete(request, commentId):
     """
     Delete a comment:

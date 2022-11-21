@@ -1,16 +1,17 @@
-from populate import base
+# from populate import base
+# -*- coding: utf-8 -*-
 from article.models import Article, Comment
-from django.contrib.auth.models import User
 
-titles = ['¦p¦ó¹³¹q¸£¬ì¾Ç®a¤@¼Ë«ä¦Ò', '10¤ÀÄÁ¤º¾Ç¦nPython', 'Â²³æ¾Ç²ßDjango']
-comments = ['¤å³¹¯u´Î', '¨Ã¤£»{¦P±zªºÆ[ÂI', '­É¤À¨É', '¾Ç¦n¤@­Óµ{¦¡»y¨¥©Î®Ø¬[¨Ã¤£®e©ö']
+# from django.contrib.auth.models import User
+
+titles = ['å¦‚ä½•åƒé›»è…¦ç§‘å­¸å®¶ä¸€æ¨£æ€è€ƒ', '10åˆ†é˜å…§å­¸å¥½Python', 'ç°¡å–®å­¸ç¿’Django']
+comments = ['æ–‡ç« çœŸæ£’', 'ä¸¦ä¸èªåŒæ‚¨çš„è§€é»', 'å€Ÿåˆ†äº«', 'å­¸å¥½ä¸€å€‹ç¨‹å¼èªè¨€æˆ–æ¡†æ¶ä¸¦ä¸å®¹æ˜“']
 
 
 def populate():
-    print('Populating Article and Comment ... ', end='')
+    print('Populating Article and Comment ... ', 'end=')
     Article.objects.all().delete()
     Comment.objects.all().delete()
-    admin = User.objects.first()
     for title in titles:
         article = Article()
         article.title = title
@@ -18,8 +19,9 @@ def populate():
             article.content += title + '\n'
         article.save()
         for comment in comments:
-            Comment.objects.create(article=article, user=admin, content=comment)
+            Comment.objects.create(article=article, content=comment)
     print('done')
+
 
 if __name__ == '__main__':
     populate()

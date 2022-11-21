@@ -1,14 +1,16 @@
 <meta charset="utf-8">
 {% extends 'main/base.html' %}
 {% load staticfiles %}
+<html>
 {% block css %}
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
 {% endblock %}
+<body>
 {% block heading %}閱讀文章{% endblock %}
 {% block content %}
-    <h3class="inlineBlock">{{ article.title }}</h3>
+    <h3 class="inlineBlock">{{ article.title }}</h3>
     <a class="btn inlineBlock" href="{% url 'article:articleUpdate' article.id %}">修改</a>
     <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
     <div class="articleContent">{{ article.content|linebreaks }}</div>
@@ -51,3 +53,4 @@
 {% endblock %}
   </body>
 </html>
+

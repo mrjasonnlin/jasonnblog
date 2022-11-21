@@ -11,7 +11,8 @@ def main(request):
     'Django 很棒'
     Render the main page
     """
-    context = {'like': 'Django 很棒', 'time': now}
+    context = {'like': 'Django 很棒',
+               'time': now}
     return render(request, 'main/main.html', context)
 
 

@@ -14,8 +14,8 @@
 <h1>歡迎來到我的部落格</h1>
 
 <form class="inlineBlock" action="{% url 'article:articleSearch' %}">
-  <input type="text" name="searchTerm" {% if searchTerm %}value="{{ searchTerm }}"{% endif %}>
-  <input class="btn" type="submit" value="查詢">
+  <input type="text" name="searchTerm" {% if searchTerm %} value="{{ searchTerm }}" {% endif %}>
+  <input class="btn" type="submit" value="查詢文章">
 </form>
 <br><br><hr>
 {% if not articles %}

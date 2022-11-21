@@ -3,6 +3,7 @@
   <li><a href="{% url 'main:main' %}">首頁</a></li>
   <li><a href="{% url 'main:about' %}">關於</a></li>
   <li><a href="{% url 'article:article' %}">留言板</a></li>
+  <li><a href="http://127.0.0.1:8000/admin/">admin</a></li>
   {% if user.is_authenticated %}
     <li><a href="{% url 'account:logout' %}">登出 ({{ user.username }})</a></li>
   {% else %}
