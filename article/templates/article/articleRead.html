@@ -1,10 +1,6 @@
-<meta charset="utf-8">
 {% extends 'main/base.html' %}
 {% load staticfiles %}
-<html>
 {% block css %}
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
 {% endblock %}
 <body>
@@ -50,7 +46,7 @@
     {% endblock %}
     {% block script %}
   <script src="{% static 'main/js/deleteConfirm.js' %}"></script>
-{% endblock %}
-  </body>
-</html>
+    {% endblock %}
+
+
 

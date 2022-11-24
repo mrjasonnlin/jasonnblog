@@ -13,7 +13,7 @@
 
   {% if article %}
   <h2>修改文章</h2>
-  <form method="post" action="{% url 'article:articleUpdate' article.id %}">
+  <form method="post" action="{% url 'article:articleUpdate' article.id %}"></form>
 {% else %}
   <h2>新增文章</h2>
   <form method="post" action="{% url 'article:articleCreate' %}">

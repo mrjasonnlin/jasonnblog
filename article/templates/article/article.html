@@ -1,23 +1,11 @@
-<!doctype html>
+{% extends 'main/base.html' %}
 {% load staticfiles %}
-<html>
-  <head>
-    <title>部落格</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% block css %}
     <link rel="stylesheet" href="{% static 'article/css/article.css' %}">
-  </head>
-  <body>
-{% include 'main/menu.html' %}
-    <h1>歡迎來到Jason的留言板</h1>
-    {% include 'main/messages.html' %}
-    <form class="inlineBlock" action="{% url 'article:articleSearch' %}">
-      <input type="text" name="searchTerm">
-      <input class="btn" type="submit" value="查詢">
-    </form>
-    
+{% endblock %}
+{% block heading %}留言板{% endblock %}
+{% block content %}
+{% include 'article/searchForm.html' %}
     <p class="inlineBlock"><a class="btn" href="{% url 'article:articleCreate' %}">新增文章</a></p>
     <br><br><hr>
     {% for items in itemList %}
@@ -43,7 +31,8 @@
       {% endfor %}
       <hr>
     {% endfor %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src={% static 'main/js/deleteConfirm.js' %}></script>
-  </body>
-</html>
+{% endblock %}
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'main/js/deleteConfirm.js' %}"></script>
+{% endblock %}
